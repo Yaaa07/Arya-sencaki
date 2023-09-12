@@ -21,6 +21,7 @@
                     <li><a href="">SERVICES</a></li>
                     <li><a href="">ABOUT</a></li>
                     <li><a href="">CONTACT</a></li>
+                    <li><a href="cv.blade.php">CV</a></li>
                 </ul>
                 <button>SIGN UP</button>
             </nav>

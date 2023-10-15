@@ -24,11 +24,11 @@
                 <h1>Data Diri</h1>
                 <div class="line"></div>
             </div>
-            <p>Nama : Arya Sencaki</p>
+            <p>Nama : {{$siswa->nama}}</p>
             <p>Umur : 16 tahun</p>
             <p>Agama : Islam</p>
             <p>Status : Pelajar</p>
-            <p>Alamat : Jl. sukarasa</p>
+            <p>Alamat : {{$siswa->alamat}}</p>
             <p>Tempat Lahir : Bandung</p>
             <p>Jenis kelamin : Laki-laki</p>
             <p>Kewarganegaraan : Indonesia</p>

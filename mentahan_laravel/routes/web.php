@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\testkoneksiController;
-use App\Http\Controllers\siswaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +17,6 @@ use App\Http\Controllers\siswaController;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-
-Route::get('/siswa',[siswacontroller::class, 'index']);
-
-Route::get('/profile_pplg', function () {
-    return view('profile_pplg');
 });
 
 Route::get('/test-koneksi', function () {

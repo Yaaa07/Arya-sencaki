@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\testkoneksiController;
-
+use App\Http\Controllers\siswaController;
+use App\Http\Controllers\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/index/siswa', 'siswaController@index');
+
+Route::resource('siswa', siswaController::class);
+
 Route::get('/test-koneksi', function () {
     return view('koneksi');
 });
 
-Route::get('/test-koneksidb', [testkoneksiController::class, 'testConnection']);
+// Route::get('/test-koneksidb', [testkoneksiController::class, 'testConnection']);

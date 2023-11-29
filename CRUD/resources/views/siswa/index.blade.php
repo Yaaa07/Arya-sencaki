@@ -7,9 +7,10 @@
     @vite('resources/css/app.css')
 </head>
 <body class="font-Montserrat">
+    @include('sweetalert::alert')
     <div class=" w-screen h-screen border-2 flex flex-col gap-2">
         <table class="table-auto ">
-            <tr class="">
+            <tr class=" bg-lime-300">
                 <th class="px-4 py-5">No</th>
                 <th class="px-4">Nama</th>
                 <th class="px-4">NIS</th>
@@ -25,7 +26,7 @@
                         $i = 1;
                     @endphp
                         @foreach($siswa as $data)
-                        <tr class="text-center text-xs p-10 hover:bg-lime-200 hover:duration-700">
+                        <tr class="text-center text-sm cursor-pointer hover:bg-lime-200 hover:duration-500">
                             <td class="font-medium py-3">
                                 {{ $i }}
                                 @php

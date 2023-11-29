@@ -19,11 +19,15 @@
                     <label for="nama" class="font-semibold text-lg">Nama:</label>
                     <input type="text" name="nama" id="nama" value="{{ $siswa->nama }}"
                         class="rounded-lg w-full h-8 block p-3 bg-gray-200 ">
+                        
                 </div>
                 <div class=" flex flex-col gap-1">
                     <label for="NIS" class="font-semibold text-lg">NIS:</label>
                     <input type="number" name="NIS" id="NIS" value="{{ $siswa->NIS }}"
                         class=" rounded-lg w-full h-8 block p-3 bg-gray-200">
+                        @if ($errors -> has('NIS'))
+                            <p class=" text-red-600">{{ ($errors -> first('NIS')) }}</p>
+                        @endif
                 </div>
                 <div class=" flex flex-col gap-1">
                     <label for="tempat_lahir" class="font-semibold text-lg">tempat lahir:</label>

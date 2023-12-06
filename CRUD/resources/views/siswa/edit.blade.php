@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form method="POST" action="{{ route('siswa.update',$siswa->id) }}">
+    <form method="POST" action="{{ route('siswa.update',$siswa->id) }}" id="myForm">
         @csrf
         @method('PUT')
         <div class="w-full h-screen flex justify-center items-center flex-col">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="flex justify-between mt-3">
                         <button type="submit"
-                            class="px-10 py-2 rounded-xl bg-green-700 flex text-xl font-semibold text-white">Masukan</button>
+                            class="px-10 py-2 rounded-xl bg-green-700 flex text-xl font-semibold text-white" onclick="openConfirmationDelete(); return false;">Masukan</button>
                         <div class="flex items-center gap-2">
                             <a href="{{ route('siswa.index') }}" class="text-green-700 text-xl font-normal">Lihat Data
                                 siswa</a>
@@ -71,7 +71,31 @@
                 </div>
         </div>        
     </form>
-        
+    <div id="confirmationDelete" class="hidden fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-9 rounded-md">
+            <p class="text-xl font-medium mb-8">Apakah anda sudah yakin untuk edit data tersebut?</p>
+            <div class="mt-4 flex justify-end">
+                <button onclick="submitForm()" class="bg-green-700 text-black hover:bg-green-950 hover:text-white font-semibold py-2 px-4 rounded-md mr-2 hover:duration-700 ">iyah</button>
+                <button onclick="closeConfirmationDelete()" class="bg-white hover:bg-green-700 text-black font-semibold py-2 px-4 border-2 border-green-200 rounded-md hover:duration-700">Batal</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let id = 0;
+
+        function openConfirmationDelete(data) {
+            id = data
+        document.getElementById('confirmationDelete').classList.remove('hidden');
+        }
+
+        function closeConfirmationDelete() {
+            document.getElementById('confirmationDelete').classList.add('hidden');
+        }
+        function submitForm() {
+            document.getElementById('myForm').submit();
+            closeConfirmationModal();
+        }
+    </script>
 </body>
 
 </html>

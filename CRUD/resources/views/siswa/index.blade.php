@@ -44,7 +44,7 @@
                                 <form method="POST" action="{{ route('siswa.destroy', $data->id) }}" id="myForm{{ $data->id }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="bg-red-200 p-1 rounded hover:bg-red-400 hover:duration-700"><img src="/assets/svg/trash-2.svg" alt="delete" class="w-4"></button>
+                                <button type="button" class="bg-red-200 p-1 rounded hover:bg-red-400 hover:duration-700" onclick="openConfirmationDelete({{ $data->id }}); return false;"><img src="/assets/svg/trash-2.svg" alt="delete" class="w-4"></button>
                             </form>
                         </td>
                             <td>
@@ -62,5 +62,31 @@
             <img src="/assets/svg/plus.svg" alt="">
         </div>
     </div>
+
+    <div id="confirmationDelete" class="hidden fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-9 rounded-md">
+            <p class="text-xl font-medium mb-8">Apakah anda yakin ingin menghapus data tersebut?</p>
+            <div class="mt-4 flex justify-end">
+                <button onclick="submitForm()" class="bg-green-700 text-black hover:bg-green-950 hover:text-white font-semibold py-2 px-4 rounded-md mr-2 hover:duration-700 ">Hapus Data</button>
+                <button onclick="closeConfirmationDelete()" class="bg-white hover:bg-green-700 text-black font-semibold py-2 px-4 border-2 border-green-200 rounded-md hover:duration-700">Batal</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let id = 0;
+
+        function openConfirmationDelete(data) {
+            id = data
+        document.getElementById('confirmationDelete').classList.remove('hidden');
+        }
+
+        function closeConfirmationDelete() {
+            document.getElementById('confirmationDelete').classList.add('hidden');
+        }
+        function submitForm() {
+            document.getElementById(`myForm${id}`).submit();
+            closeConfirmationModal();
+        }
+    </script>
 </body>
 </html>
